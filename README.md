@@ -23,9 +23,9 @@ server {
 
 The following is the list of software you require to go through the recipes covered in this book:
 
-    NGINX
-    PHP 7
-    Ubuntu/CentOS/RHEL
+* NGINX
+* PHP 7
+* Ubuntu/CentOS/RHEL
 
 ## Related Products
 * [Nginx HTTP Server - Third Edition](https://www.packtpub.com/networking-and-servers/nginx-http-server-third-edition?utm_source=github&utm_medium=repository&utm_campaign=9781785280337)
