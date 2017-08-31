@@ -1,0 +1,19 @@
+version: ''3''
+
+networks:
+  webnet:
+
+services:
+  redmine:
+    image: redmine
+    networks:
+      webnet:
+        aliases:
+          - demo-redmine
+
+  nginx-proxy:
+    build: ./
+    ports:
+      - 443:443
+    networks:
+      - webnet

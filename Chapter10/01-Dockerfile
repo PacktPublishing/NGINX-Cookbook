@@ -1,0 +1,29 @@
+##########################################################################
+#  NGINX Cookbook                                                        #
+#  --------------------------------------------------------------------  #
+#  Author: Tim Butler                                                    #
+#  Publisher: Packt Publishing                                           #
+#  Chapter 9 - Docker Containers                                         #
+#  --------------------------------------------------------------------  #
+#  Book: https://www.packtpub.com/networking-and-servers/nginx-cookbook  #
+#  Source: https://github.com/timbutler/nginxcookbook                    #
+##########################################################################
+
+FROM nginx:latest
+
+# Configuration
+COPY default.conf /etc/nginx/conf.d/
+
+# SSL Certificates and DH Key
+COPY dockerdemo.crt /etc/ssl/dockerdemo.crt
+COPY dockerdemo.key /etc/ssl/dockerdemo.key
+COPY dh4096.pem /etc/ssl/dh4096.pem
+
+# Symlink the logs to stdout and stderr
+RUN ln -sf /dev/stdout /var/log/nginx/access.log
+RUN ln -sf /dev/stderr /var/log/nginx/error.log
+
+# Expose port 443 (HTTPS)
+EXPOSE 443
+
+CMD [""nginx"", ""-g"", ""daemon off;""]

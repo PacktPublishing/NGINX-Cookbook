@@ -1,0 +1,19 @@
+version: ''3''
+
+networks:
+  htestnet:
+
+services:
+  nginx-proxy:
+    build: ./
+    ports:
+      - ""443:443""
+    networks:
+      - htestnet
+
+  htest:
+    image: timbutler/htest
+    networks:
+      htestnet:
+        aliases:
+          - htestbackend
